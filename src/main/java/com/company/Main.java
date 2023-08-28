@@ -282,7 +282,6 @@ public class Main {
 //        }
 //        System.out.println(silentMode);
 //
-//
 //        String str = "Phone band ya out of coverage honay ki waja say agar apki calls miss ho jati hain tou dial *180# or hasil karo Jazz Missed Call Alert @ Rs.1.82+ t rozana";
 
         byte[] byt =  new byte[] {12};

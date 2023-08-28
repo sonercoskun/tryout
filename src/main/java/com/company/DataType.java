@@ -26,6 +26,4 @@ public enum DataType {
         }
         return null;
     }
-
-
 }
