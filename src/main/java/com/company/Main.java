@@ -2,9 +2,12 @@ package com.company;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.reflect.TypeToken;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 
+import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -18,6 +21,11 @@ import java.util.stream.Collectors;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static java.time.temporal.TemporalAdjusters.firstDayOfMonth;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
 
 public class Main {
     private static final AtomicLong average = new AtomicLong(0);
@@ -291,13 +299,24 @@ public class Main {
 //        System.out.println(byt[0]);
 
         //POJO TO MAP
-        DTO dto = new DTO();
-        dto.setData("s");
-        ObjectMapper mapper = new ObjectMapper();
-        Map <String, Object> map =
-                mapper.convertValue(dto, new TypeReference<Map<String,Object>>() {});
-        System.out.println(map);
-        //MAP TO POJO
-        DTO dto1 = mapper.convertValue(map,DTO.class);
+//        DTO dto = new DTO();
+//        dto.setData("s");
+//        ObjectMapper mapper = new ObjectMapper();
+//        Map <String, Object> map =
+//                mapper.convertValue(dto, new TypeReference<Map<String,Object>>() {});
+//        System.out.println(map);
+//        //MAP TO POJO
+//        DTO dto1 = mapper.convertValue(map,DTO.class);
+//        System.out.println(dto1);
+//        DECIMAL FORMAT
+//        String str = "0.0000038";
+//        double d;
+//        BigDecimal btc = new BigDecimal(str);
+//        d = btc.doubleValue();
+//        System.out.println(d);
+//        String s = new DecimalFormat("0.##############").format(Double.parseDouble("3.8E-6"));
+//        System.out.println(s);
+//        BigDecimal bigDecimal = new BigDecimal("0.0036939");
+//        System.out.println(bigDecimal.setScale(7,BigDecimal.ROUND_DOWN));
     }
 }
