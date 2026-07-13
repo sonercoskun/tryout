@@ -1,0 +1,344 @@
+SELECT * FROM TABLE(get_final_suppressed_offers('96567782619'));
+SELECT OFFER_NAME FROM TABLE(get_final_suppressed_offers('96567782619'));
+SELECT * FROM INT_CUSTOM_BENEFIT_OBJECT_DEF WHERE NAME IN (SELECT DISTINCT OFFER_NAME FROM CAMPAIGN_OFFERS);
+
+SELECT * FROM user_indexes WHERE table_name = 'INT_FUTURE_EVENT';
+SELECT * FROM user_mviews WHERE mview_name = 'INT_FUTURE_EVENT';
+SELECT * FROM user_triggers WHERE table_name = 'INT_FUTURE_EVENT';
+SELECT * FROM user_constraints WHERE table_name = 'INT_FUTURE_EVENT';
+SELECT * FROM user_mview_logs WHERE master = 'INT_FUTURE_EVENT';
+select * from int_custom_benefit_object_def where name in ('BUNDLE_11KD_1TB_1000MINS_90DAYS_5G',
+    'BUNDLE_13KD_1TB_1000MINS_90DAYS_5G',
+'BUNDLE_9KD_500GB_500MINS_60DAYS_5G',
+'BUNDLE_5KD_300GB_1000MINS_30DAYS',
+'BUNDLE_8KD_500GB_500MINS_60DAYS_5G',
+'BUNDLE_6KD_600GB_600M_ULOM_30D_FUNFRI');
+SELECT co.ID, co.OFFER_NAME, co.SCENARIO as scenario, icbod.PARAMETERS AS paramsJson FROM INT_CUSTOM_BENEFIT_OBJECT_DEF icbod
+                                          LEFT JOIN CAMPAIGN_OFFERS co ON co.OFFER_NAME = icbod.NAME WHERE co.ID = 1000020;
+
+SELECT * FROM CAMPAIGN_OFFERS WHERE MSISDN = 96567782619 AND SCENARIO = 'CP_PREPAID';
+
+
+
+UPDATE CAMPAIGN_OFFERS SET STATUS = 1, INVISIBLE_DATE = sysdate WHERE ID = 1000020 AND STATUS = 0;
+UPDATE CAMPAIGN_OFFERS SET STATUS = 2, INVISIBLE_DATE = SYSDATE WHERE MSISDN = 96567782619 AND SCENARIO = 'CP_PREPAID' AND STATUS = 0 AND ID != 1000000;
+
+select count(*) from CAMPAIGN_OFFERS;
+
+--TRUNCATE TABLE CAMPAIGN_OFFERS;
+
+--Active session sayısı (anlık)
+SELECT status, COUNT(*) cnt
+FROM v$session
+WHERE type = 'USER'
+GROUP BY status
+ORDER BY cnt DESC;
+
+
+--Ne bekliyorlar? (WAIT event / sınıflar)
+SELECT NVL(event,'ON CPU') AS event, COUNT(*) cnt
+FROM v$session
+WHERE type='USER'
+  AND username='ENG'
+GROUP BY NVL(event,'ON CPU')
+ORDER BY cnt DESC FETCH FIRST 15 ROWS ONLY;
+
+
+--Bloklayan var mı? (lock)
+SELECT
+    s1.sid  AS blocked_sid,
+    s2.sid  AS blocking_sid,
+    s1.event,
+    s1.seconds_in_wait
+FROM v$session s1
+         JOIN v$session s2 ON s1.blocking_session = s2.sid
+WHERE s1.username='ENG';
+
+
+--Top SQL (en çok zaman yiyen)
+SELECT *
+FROM (
+         SELECT
+             sql_id,
+             executions,
+             ROUND(elapsed_time/1e6,2) AS elapsed_sec,
+             ROUND(cpu_time/1e6,2)     AS cpu_sec,
+             buffer_gets,
+             disk_reads,
+             rows_processed,
+             SUBSTR(sql_text,1,120) AS sql_text
+         FROM v$sql
+         WHERE parsing_schema_name = 'ENG'
+         ORDER BY elapsed_time DESC
+     )
+WHERE ROWNUM <= 10;
+
+
+--En çok çağrılan (executions)
+SELECT *
+FROM (
+         SELECT
+             sql_id,
+             executions,
+             ROUND(elapsed_time/1e6,2) AS elapsed_sec,
+             ROUND(elapsed_time/NULLIF(executions,0)/1e3,2) AS avg_ms,
+             SUBSTR(sql_text,1,120) AS sql_text
+         FROM v$sql
+         WHERE parsing_schema_name = 'ENG'
+         ORDER BY executions DESC
+     )
+WHERE ROWNUM <= 10;
+
+
+--“Şu an aktif çalışan” SQL’ler (anlık)
+SELECT
+    s.sid,
+    s.serial#,
+    s.status,
+    s.event,
+    s.seconds_in_wait,
+    s.sql_id,
+    SUBSTR(q.sql_text, 1, 120) AS sql_text
+FROM v$session s
+         LEFT JOIN v$sql q ON q.sql_id = s.sql_id
+WHERE s.username = 'ENG'
+  AND s.status = 'ACTIVE'
+ORDER BY s.seconds_in_wait DESC;
+
+
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY_CURSOR('02mmcbpq6uwyz', NULL, 'ALLSTATS LAST'));
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY_CURSOR('d3x9dmzdakw6j', NULL, 'ALLSTATS LAST'));
+
+UPDATE CAMPAIGN_OFFERS SET STATUS = 1, INVISIBLE_DATE = SYSDATE WHERE MSISDN = ? AND SCENARIO = ? AND STATUS = 0;
+UPDATE CAMPAIGN_OFFERS SET STATUS = 2 WHERE MSISDN = ? AND SCENARIO = ? AND STATUS = 0 AND ID != ?;
+
+delete from INT_CUSTOM_BENEFIT_OBJECT_DEF where category = 'PREPAID';
+select count(*) from INT_CUSTOM_BENEFIT_OBJECT_DEF where CATEGORY='PREPAID' AND TEMPLATE_ID=2;
+
+select * from INT_CUSTOM_BENEFIT_OBJECT_DEF where name = 'BUNDLE_10KD_1TB_1000MINS_120DAYS_5G_ANA';
+
+SELECT * FROM INT_CUSTOM_BENEFIT_OBJECT_DEF WHERE CATEGORY ='POSTPAID';
+
+select * from INT_CUSTOM_BENEFIT_OBJECT_DEF;
+
+SELECT
+    JSON_VALUE(PARAMETERS, '$[*].value') AS promotion_id_value
+FROM
+    INT_CUSTOM_BENEFIT_OBJECT_DEF
+WHERE
+    JSON_EXISTS(PARAMETERS, '$[*] ?(@.parameterName == "PROMOTION_ID" && @.value != null)');
+
+select count(*) from INT_CUSTOM_BENEFIT_OBJECT_DEF;
+
+select * from KMP_KAMPANYATEKLIF order by GIRISTARIHI desc;
+
+SELECT ID as id, OFFER_NAME as name, SCENARIO as scenario, SUBSEGMENT_NAME as subsegmentName, OFFER_START_DATE as offerStartDate,
+       OFFER_END_DATE as offerEndDate FROM CAMPAIGN_OFFERS WHERE ID = ?;
+
+SELECT * FROM KMP_KAMPANYADOSYA;
+
+INSERT INTO KMP_KAMPANYADOSYA
+(ID, SENARYOADI, SONKAYITTARIHI, SONKAYITID,
+ ILETISIMKODU, ILKKAYITID, KAYITSIRASI)
+SELECT KMP_SEQ_KAMPANYADOSYA.nextval, KAMPANYAADI, DATA_INSERT_DTTM_MAX, RN_MAX,
+       TEKLIFKODU, RN_MIN, RN_CNT
+FROM (
+         SELECT
+             kt.KAMPANYAADI,
+             MAX(kt.RECORDDATE)  AS DATA_INSERT_DTTM_MAX,
+             MAX(kt.KAMPANYAREFERANSI)                AS RN_MAX,
+             kt.TEKLIFKODU,
+             MIN(kt.KAMPANYAREFERANSI)                AS RN_MIN,
+             COUNT(kt.KAMPANYAREFERANSI)              AS RN_CNT
+         FROM KMP_KAMPANYATEKLIF kt,
+              ( SELECT SENARYOADI, ILETISIMKODU,
+                       MAX(SONKAYITID) AS SONKAYITID
+                FROM KMP_KAMPANYADOSYA
+                WHERE ILETISIMKODU     = 'COMM_46JG1'
+                  AND SENARYOADI = 'sms_test'
+                GROUP BY SENARYOADI, ILETISIMKODU
+              ) stmax
+         WHERE kt.TEKLIFKODU     = 'COMM_46JG1'
+           AND kt.KAMPANYAADI = 'sms_test'
+           AND kt.KAMPANYAADI = stmax.SENARYOADI(+)
+           AND kt.TEKLIFKODU     = stmax.ILETISIMKODU(+)
+           AND kt.KAMPANYAREFERANSI > NVL(stmax.SONKAYITID, 0)
+         GROUP BY kt.KAMPANYAADI, kt.TEKLIFKODU,
+                  NVL(stmax.SONKAYITID, 0)
+     )
+WHERE DATA_INSERT_DTTM_MAX < SYSDATE - (1/480);
+
+select * from INT_SCENARIO_HIST where SCENARIO_NAME = 'test'  order by operation_date desc fetch first 1 row only;
+select * from INT_SCENARIO_HIST where SCENARIO_NAME = 'test' fetch first 1 row only;
+
+SELECT iw.ID, isd.START_DATE, isd.END_DATE
+FROM INT_SCENARIO_DEF isd LEFT JOIN INT_WORKSPACE iw ON iw.NAME = isd.SCENARIO_NAME
+WHERE LOWER(TRIM('sms_test')) = LOWER(TRIM('sms_test'))
+    FETCH FIRST 1 ROWS ONLY;
+
+SELECT KAMPANYAISLEMKODU,
+       KAMPANYAADI,
+       KAMPANYAKODU,
+       TEKLIFADI,
+       TEKLIFACIKLAMASI,
+       TEKLIFKODU,
+       TEKLIFBASLANGICTARIHI,
+       TEKLIFBITISTARIHI,
+       URUNKODU,
+       KAMPANYABASLANGICTARIHI,
+       KAMPANYABITISTARIHI,
+       KAMPANYABIRIMI,
+       RECORDUSERCODE,
+       KISAMESAJMETNI,
+       GONDERENBASLIK,
+       HUCREKODU,
+       KAMPANYAKATEGORISI
+FROM KMP_KAMPANYATEKLIF
+WHERE KAMPANYAADI = 'sms_test'
+  AND TEKLIFKODU   = 'COMM_O6IU1'
+  AND KAMPANYAISLEMKODU IS NOT NULL
+ORDER BY RECORDDATE DESC
+    FETCH FIRST 1 ROWS ONLY;
+
+SELECT iw.ID as iwdid, isd.ID as isdid, isd.START_DATE, isd.END_DATE
+FROM INT_SCENARIO_DEF isd LEFT JOIN INT_WORKSPACE iw ON iw.NAME = isd.SCENARIO_NAME
+WHERE LOWER(TRIM('sms_test')) = LOWER(TRIM('sms_test'))
+    FETCH FIRST 1 ROWS ONLY;
+
+SELECT SENARYOADI, ILETISIMKODU,
+       MAX(SONKAYITID) AS SONKAYITID
+FROM KMP_KAMPANYADOSYA
+WHERE ILETISIMKODU     = 'COMM_O6IU1'
+  AND SENARYOADI = 'smstest1'
+GROUP BY SENARYOADI, ILETISIMKODU;
+
+
+SELECT
+    kt.KAMPANYAADI,
+    MAX(kt.GIRISTARIHI)  AS DATA_INSERT_DTTM_MAX,
+    MAX(kt.KAMPANYAREFERANSI)                AS RN_MAX,
+    kt.TEKLIFKODU,
+    MIN(kt.KAMPANYAREFERANSI)                AS RN_MIN,
+    COUNT(kt.KAMPANYAREFERANSI)              AS RN_CNT
+FROM KMP_KAMPANYATEKLIF kt,
+     ( SELECT SENARYOADI, ILETISIMKODU,
+              MAX(SONKAYITID) AS SONKAYITID
+       FROM KMP_KAMPANYADOSYA
+       WHERE ILETISIMKODU     = 'COMM_AM0D9'
+         AND SENARYOADI = 'atmTest'
+       GROUP BY SENARYOADI, ILETISIMKODU
+     ) stmax
+WHERE kt.TEKLIFKODU     = 'COMM_AM0D9'
+  AND kt.KAMPANYAADI = 'atmTest'
+  AND kt.KAMPANYAADI = stmax.SENARYOADI(+)
+  AND kt.TEKLIFKODU     = stmax.ILETISIMKODU(+)
+  AND kt.KAMPANYAREFERANSI > NVL(stmax.SONKAYITID, 0)
+GROUP BY kt.KAMPANYAADI, kt.TEKLIFKODU,
+         NVL(stmax.SONKAYITID, 0);
+
+
+
+SELECT kt.*
+FROM KMP_KAMPANYATEKLIF kt,
+     ( SELECT SENARYOADI, ILETISIMKODU, ILKKAYITID
+       FROM KMP_KAMPANYADOSYA
+       WHERE SENARYOADI = 'atmTest'
+         AND ILETISIMKODU     = 'COMM_AM0D9'
+         AND TOPLUISLEM  = 'N'
+     ) st
+WHERE kt.KAMPANYAADI = 'atmTest'
+  AND kt.TEKLIFKODU     = 'COMM_AM0D9'
+  AND kt.KAMPANYAADI = st.SENARYOADI
+  AND kt.TEKLIFKODU     = st.ILETISIMKODU
+  AND kt.KAMPANYAREFERANSI >= st.ILKKAYITID;
+
+
+SELECT iw.ID, isd.OP_USER, isd.START_DATE, isd.END_DATE FROM INT_SCENARIO_DEF isd LEFT JOIN INT_WORKSPACE iw ON iw.NAME = isd.SCENARIO_NAME
+WHERE LOWER(TRIM(scenario_name)) = LOWER(TRIM('sms_test'))
+    FETCH FIRST 1 ROWS ONLY;
+SELECT COUNT(distinct MSISDN) FROM ACTORS;
+SELECT count(distinct MUSTERINO) FROM DW_MST_MUSTERI;
+INSERT INTO DW_MST_MUSTERI (MUSTERINO, MUSTERITIPI) SELECT DISTINCT(TRIM(MSISDN)),'1' FROM ACTORS;
+SELECT * FROM ALL_SEQUENCES;
+SELECT COUNT(*) FROM KMP_KAMPANYATEKLIF WHERE TRUNC(GIRISTARIHI) = TRUNC(SYSDATE);
+--8 dak 10k kayıt
+--EVAM839 - EVAM123
+--EEC839 - EVAM123
+
+ALTER TABLE ENG.DW_MST_MUSTERI
+    ADD CONSTRAINT PK_DW_MST_MUSTERI PRIMARY KEY (MUSTERINO);
+
+
+-- Standard Primary Key
+ALTER TABLE ENG.KMP_KAMPANYATEKLIF
+    ADD CONSTRAINT PK_KMP_KAMPANYATEKLIF PRIMARY KEY (KAMPANYAREFERANSI);
+
+-- If you query by Customer Number frequently
+CREATE INDEX IDX_KMP_KAMPANYA_MUSTERI ON ENG.KMP_KAMPANYATEKLIF (MUSTERINO);
+--276967
+--
+
+select * from ALL_SEQUENCES where sequence_name = 'KMP_SEQ_KAMPANYATEKLIF';
+
+SELECT id || '-' || scenario_name AS segment_scenario_key
+FROM INT_SEGMENT_SCENARIO_RUN
+WHERE scenario_name = 'sms_yuk_testi';
+SELECT COUNT(*) FROM ACTORS;
+--TRUNCATE TABLE CSV_READER;
+
+
+
+SELECT KAMPANYAISLEMKODU,
+       KAMPANYAADI,
+       KAMPANYAKODU,
+       TEKLIFADI,
+       TEKLIFACIKLAMASI,
+       TEKLIFKODU,
+       TEKLIFBASLANGICTARIHI,
+       TEKLIFBITISTARIHI,
+       URUNKODU,
+       KAMPANYABASLANGICTARIHI,
+       KAMPANYABITISTARIHI,
+       KAMPANYABIRIMI,
+       RECORDUSERCODE,
+       KISAMESAJMETNI,
+       GONDERENBASLIK,
+       HUCREKODU,
+       KAMPANYAKATEGORISI,
+       KAMPANYAREFERANSI,
+       MUSTERITELEFONNO,
+       MUSTERITIPI,
+       MUSTERINO
+FROM KMP_KAMPANYATEKLIF
+WHERE KAMPANYAADI = 'smsYukTest'
+  AND TEKLIFKODU   = 'COMM_D0NSQ'
+  AND KAMPANYAISLEMKODU IS NOT NULL
+ORDER BY RECORDDATE DESC;
+
+SELECT KMP_SEQ_KAMPANYADOSYA.nextval, KAMPANYAADI, DATA_INSERT_DTTM_MAX, RN_MAX,
+       TEKLIFKODU, RN_MIN, RN_CNT
+FROM (
+         SELECT
+             kt.KAMPANYAADI,
+             MAX(kt.GIRISTARIHI)  AS DATA_INSERT_DTTM_MAX,
+             MAX(kt.KAMPANYAREFERANSI)                AS RN_MAX,
+             kt.TEKLIFKODU,
+             MIN(kt.KAMPANYAREFERANSI)                AS RN_MIN,
+             COUNT(kt.KAMPANYAREFERANSI)              AS RN_CNT
+         FROM KMP_KAMPANYATEKLIF kt,
+              ( SELECT SENARYOADI, ILETISIMKODU,
+                       MAX(SONKAYITID) AS SONKAYITID
+                FROM KMP_KAMPANYADOSYA
+                WHERE ILETISIMKODU     = 'COMM_D0NSQ'
+                  AND SENARYOADI = 'smsYukTest'
+                GROUP BY SENARYOADI, ILETISIMKODU
+              ) stmax
+         WHERE kt.TEKLIFKODU     = 'COMM_D0NSQ'
+           AND kt.KAMPANYAADI = 'smsYukTest'
+           AND kt.KAMPANYAADI = stmax.SENARYOADI(+)
+           AND kt.TEKLIFKODU     = stmax.ILETISIMKODU(+)
+           AND kt.KAMPANYAREFERANSI > NVL(stmax.SONKAYITID, 0)
+         GROUP BY kt.KAMPANYAADI, kt.TEKLIFKODU,
+                  NVL(stmax.SONKAYITID, 0)
+     )
+WHERE DATA_INSERT_DTTM_MAX < SYSDATE - (1/480);

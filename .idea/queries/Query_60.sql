@@ -1,0 +1,1 @@
+select * from UMCSYS.PTML_CHN_SMS_BC where CAMPAIGN_CODE='C000007516' and MSISDN like '30%';

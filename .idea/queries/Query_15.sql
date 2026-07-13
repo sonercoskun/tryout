@@ -1,0 +1,1 @@
+select count(*) from int_segment_ds_mapping;

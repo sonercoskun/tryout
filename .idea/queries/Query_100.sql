@@ -1,0 +1,1 @@
+select distinct actorid from int_log_table where scenario_name='Gelecek_Anketi_20241218' and state='Tiklayanlar';

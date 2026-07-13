@@ -1,0 +1,1 @@
+select max(log_time) from int_log_table where event ='SmsEvent';

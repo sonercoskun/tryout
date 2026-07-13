@@ -1,0 +1,1 @@
+select count(*) from global_control_group

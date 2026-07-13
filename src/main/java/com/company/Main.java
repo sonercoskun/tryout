@@ -1,14 +1,24 @@
 package com.company;
 
+import com.company.fileup.FileExportService;
+import com.company.fileup.FtpUploadService;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.reflect.TypeToken;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
+import com.evam.encryptor.utility.CryptUtils;
 
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.nio.file.Path;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -36,7 +46,7 @@ public class Main {
     private static final String RUN_ID_LIST_PREFIX = "RunIdList=";
     private static final String testNumbers = "923032182278,923059126178,923074220020,923059126278,923059127278,923074220024,923074220018,923074220017,923074330014,923074220025,923074310024,923059127278";
 
-    public static void main(String[] args) throws InterruptedException, ParseException {
+    public static void main(String[] args) throws InterruptedException, ParseException, UnknownHostException {
 //        LocalDate initial = LocalDate.now().with(firstDayOfMonth());
 //        System.out.printf(initial.toString());
 //
@@ -318,5 +328,114 @@ public class Main {
 //        System.out.println(s);
 //        BigDecimal bigDecimal = new BigDecimal("0.0036939");
 //        System.out.println(bigDecimal.setScale(7,BigDecimal.ROUND_DOWN));
+
+        //ISNUMERIC
+//        String value = "1.0";
+//        if(StringUtils.isNumeric(value) || NumberUtils.isParsable(value)) {
+//            System.out.println("value is number " + value);
+//            int i = (int)Double.parseDouble(value);
+//            System.out.println(i);
+//        }
+        //STRING REPLACE
+//    import java.util.Arrays;
+//    public class Main {
+//        public static void main(String[] args) {
+//            String[] arr = {"1","2","3"};
+//            System.out.println(Arrays.toString(arr));
+//            String mystr1 = Arrays.toString(arr);
+//            System.out.println(mystr1.replace(",", "").substring(1,6));
+//        }
+//    }
+//
+//        String str =  "http://kv-ors-rtmtestsasci.intra.net.ua:7980/RTDM/rest/decisionDefinitions/%22RTM_9999_Amdox_testing_%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%88%D0%B5%D0%BD%D0%BD%D1%8F%22";
+//        System.out.println(str);
+//        str = str.replaceAll("%22","");
+//        System.out.println(str);
+
+
+//        -------------------
+//        String tok = "[\"H123\",\"H124\",\"H125\"]";
+//        String[] tokens =  {"[\"H123\"]"};
+////
+////        if(tok.contains(",")){
+////            tok.replace("\",\"",",");
+////        }
+//        System.out.println(tokens[0].replace("[","").replace("]","").replace("\",\"",","));
+
+
+//        int statusCode = -1;
+//        String result = "";
+//        String response = "{\"status_code\":-1}";
+//        JsonParser jsonParser = new JsonParser();
+//        JsonObject jsonResponse = jsonParser.parse(response.toString()).getAsJsonObject();
+//        statusCode = Integer.parseInt(jsonResponse.get("status_code").getAsString());
+//        if(statusCode == 0) {
+//            result = jsonResponse.get("result").getAsString();
+//            System.out.println("Parsed Response:");
+//            System.out.println("Status Code: " + statusCode);
+//            System.out.println("Result: " + result);
+//        }
+
+//        try {
+//            System.out.println("Error parsing proper time range");
+//
+//            LocalTime start = LocalTime.parse("08:00");
+//            LocalTime end = LocalTime.parse("22:20");
+//            LocalTime now = LocalTime.now(); //
+//            System.out.println("Error parsing proper time range");
+//
+//            // sistem varsayılanı
+//            if (now.isAfter(start) && now.isBefore(end)) {
+//                System.out.println(start);
+//                System.out.println(end);
+//
+//                //    return true;
+//            }
+//
+//        }catch(Exception e){
+//            System.out.println("Error parsing proper time range");
+//
+//            // log.error("Error parsing proper time range: start='{}', end='{}'. Error: {}", startHHmm, endHHmm, e.getMessage());ralığı hat
+//        }
+//        String s =  "Kartlar ve Üye İşyeri";
+//
+//        switch (s.toLowerCase(new Locale("tr", "TR"))) {
+//            case "kredi":
+//                System.out.println(1);
+//                break;
+//            case "mevduat/yatırım":
+//                System.out.println(2);
+//            break;
+//            case "kartlar ve üye işyeri":
+//                System.out.println(3);
+//            break;
+//            case "sigorta/diğer":
+//                System.out.println(4);
+//            break;
+//            default: System.out.println(0);
+//        }
+
+
+//        FILE EXPORTER
+//        FileExportService fileExportService = new FileExportService();
+//        Map<String, Object> musteriBilgileri = new HashMap<>();
+//        musteriBilgileri.put("kampanyaReferansi","ref");
+//        musteriBilgileri.put("musteriTelefon","1234567890");
+//        musteriBilgileri.put("kampanyaKategorisi","kat");
+//        musteriBilgileri.put("smsMetni","metin");
+//        musteriBilgileri.put("musteriTipi","tip");
+//        musteriBilgileri.put("musteriNo","12345");
+//        Map<String, Object> headerInfo = new HashMap<>();
+//        headerInfo.put("smsTipi","GEN");
+//        headerInfo.put("kampanyaBirimi","birim");
+//        Path path = fileExportService.createSmsFile(musteriBilgileri,headerInfo);
+//
+//        FtpUploadService ftpUploadService = new FtpUploadService();
+//        ftpUploadService.uploadFile(path,"");
+
+        //CRYPT UTILS
+//        System.out.println(CryptUtils.decrypt("232+R1MOef854MSNX6bFyw==")); // WORKING
+//        System.out.println(CryptUtils.decrypt("w8vxnqy4TFQELHeDyDwqSQ==")); // BAD HASH
+
     }
 }

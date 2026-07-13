@@ -1,0 +1,1 @@
+select * from broadcast_test_copy_table;

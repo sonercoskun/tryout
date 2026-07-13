@@ -1,0 +1,1 @@
+select count(*) from ufone_sms_bbc_colone_test;

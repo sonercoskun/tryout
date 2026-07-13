@@ -1,0 +1,1 @@
+select count(*) from PTML_CHN_SMS_VASBC;

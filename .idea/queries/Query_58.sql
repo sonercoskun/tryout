@@ -1,0 +1,1 @@
+select * from PTML_CHN_SMS_BBC where MSISDN='923328775853';

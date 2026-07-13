@@ -1,0 +1,2 @@
+select * from UMCSYS.PTML_CHN_SMS_BBC where CAMPAIGN_CODE='C000004878';
+select count(*) from UMCSYS.UFONE_SMS_BBC_COLONE_TEST;

@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="PMP_VEW_EVAM@172.16.15.21" uuid="705d442b-0c91-4812-84ca-dd6719315082">
+      <driver-ref>teradata</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.teradata.jdbc.TeraDriver</jdbc-driver>
+      <jdbc-url>jdbc:teradata://172.16.15.21/DATABASE=PMP_VEW_EVAM,DBS_PORT=1025,STRICT_NAMES=OFF</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="PMP_AVEW@172.16.15.21" uuid="93d46f79-9773-4399-ac46-ab76bde4c2b6">
+      <driver-ref>teradata</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.teradata.jdbc.TeraDriver</jdbc-driver>
+      <jdbc-url>jdbc:teradata://172.16.15.21/DATABASE=PMP_AVEW,DBS_PORT=1025,STRICT_NAMES=OFF</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.resource.type" value="Deployment" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="PDM_RNW@172.16.15.21" uuid="c6b7cbc6-16ce-4271-842d-40228404f97d">
+      <driver-ref>teradata</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.teradata.jdbc.TeraDriver</jdbc-driver>
+      <jdbc-url>jdbc:teradata://172.16.15.21/DATABASE=PDM_RNW,DBS_PORT=1025,STRICT_NAMES=OFF</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.resource.type" value="Deployment" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="SB_MPP@172.16.24.2" uuid="9b5c166b-117f-4b35-a9f8-5b7c2c4e137a">
+      <driver-ref>teradata</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.teradata.jdbc.TeraDriver</jdbc-driver>
+      <jdbc-url>jdbc:teradata://172.16.24.2/DATABASE=SB_MPP,DBS_PORT=1025,STRICT_NAMES=OFF</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.resource.type" value="Deployment" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="SB_MPP@172.16.15.21" uuid="a0d23572-1ac8-4a97-a61c-e95816baab3c">
+      <driver-ref>teradata</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.teradata.jdbc.TeraDriver</jdbc-driver>
+      <jdbc-url>jdbc:teradata://172.16.15.21/DATABASE=SB_MPP,DBS_PORT=1025,STRICT_NAMES=OFF</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.resource.type" value="Deployment" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="MP_LDVEW_UNI@172.16.15.21" uuid="5390375c-13ea-4149-9d67-47d42e040ea6">
+      <driver-ref>teradata</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.teradata.jdbc.TeraDriver</jdbc-driver>
+      <jdbc-url>jdbc:teradata://172.16.15.21/DATABASE=MP_LDVEW_UNI,DBS_PORT=1025,STRICT_NAMES=OFF</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.resource.type" value="Deployment" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="MP_BVEW_UNI@172.16.24.2" uuid="0b2726bd-d2b4-4f5a-8f6c-d2e2591dd649">
+      <driver-ref>teradata</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.teradata.jdbc.TeraDriver</jdbc-driver>
+      <jdbc-url>jdbc:teradata://172.16.24.2/DATABASE=MP_BVEW_UNI,DBS_PORT=1025,STRICT_NAMES=OFF</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.resource.type" value="Deployment" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="MP_BVEW_UNI@172.16.15.21" uuid="9eb47ad8-da39-43aa-95c6-e18b6786f432">
+      <driver-ref>teradata</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.teradata.jdbc.TeraDriver</jdbc-driver>
+      <jdbc-url>jdbc:teradata://172.16.15.21/DATABASE=MP_BVEW_UNI,DBS_PORT=1025,STRICT_NAMES=OFF</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.resource.type" value="Deployment" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="MP_BVEW_CMT@172.16.24.2" uuid="622dc565-3ad2-4ab3-905c-1896a7ee5a89">
+      <driver-ref>teradata</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.teradata.jdbc.TeraDriver</jdbc-driver>
+      <jdbc-url>jdbc:teradata://172.16.24.2/DATABASE=MP_BVEW_CMT,DBS_PORT=1025,STRICT_NAMES=OFF</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.resource.type" value="Deployment" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="MP_BVEW_CMT@172.16.15.21" uuid="8d604eea-18c0-44aa-9a8c-d39a61b6398f">
+      <driver-ref>teradata</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.teradata.jdbc.TeraDriver</jdbc-driver>
+      <jdbc-url>jdbc:teradata://172.16.15.21/DATABASE=MP_BVEW_CMT,DBS_PORT=1025,STRICT_NAMES=OFF</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.resource.type" value="Deployment" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="@172.16.24.38" uuid="7701337f-7157-4b04-af3c-b178e39a2c65">
+      <driver-ref>oracle.19</driver-ref>
+      <synchronize>true</synchronize>
+      <auto-commit>false</auto-commit>
+      <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
+      <jdbc-url>jdbc:oracle:thin:@//172.16.24.38:1540/unicanewdev</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.resource.type" value="Deployment" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="evam@172.16.15.25" uuid="a18342f1-3246-492f-8828-40b49bbc1c44">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://172.16.15.25:5432/evam</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="evamdb@172.16.16.24" uuid="5fa08f7a-87aa-4792-b449-74ef03b06cfd">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://172.16.16.24:5432/evamdb</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.resource.type" value="Deployment" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="@172.16.27.70" uuid="b6c69fef-64b7-43f1-a959-bfd2541f80fc">
+      <driver-ref>oracle.19</driver-ref>
+      <synchronize>true</synchronize>
+      <auto-commit>false</auto-commit>
+      <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
+      <jdbc-url>jdbc:oracle:thin:@//172.16.27.70:1521/unicanew</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.resource.type" value="Deployment" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="MP_LDVEW_UNI@172.16.15.21 [2]" uuid="f39d641c-85f0-44a5-a932-033619a3de67">
+      <driver-ref>teradata</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.teradata.jdbc.TeraDriver</jdbc-driver>
+      <jdbc-url>jdbc:teradata://172.16.15.21/DATABASE=MP_LDVEW_UNI,DBS_PORT=1025,STRICT_NAMES=OFF</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.resource.type" value="Deployment" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="LOCAL-ORACLE" uuid="d3d425ae-f49c-49a3-8998-cd8a07de905c">
+      <driver-ref>oracle.19</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
+      <jdbc-url>jdbc:oracle:thin:@//localhost:1521/FREEPDB1</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="hopi" uuid="f81bbd08-4c44-4e70-804d-cfe60ae7090f">
+      <driver-ref>bigquery</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.simba.googlebigquery.jdbc42.Driver</jdbc-driver>
+      <jdbc-url>jdbc:bigquery://https://www.googleapis.com/bigquery/v2:443</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="ProjectId" value="hopi-big-data" />
+        <property name="OAuthServiceAcctEmail" value="evam-bq-sa@hopi-big-data.iam.gserviceaccount.com" />
+        <property name="GOOGLE_APPLICATION_CREDENTIALS" value="C:\Users\evam\Desktop\hopi-key-bigdata.txt" />
+        <property name="OAuthPvtKeyPath" value="C:\Users\evam\Desktop\hopi-key.txt" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="hopi postgre" uuid="a9d4392d-5218-47ab-a533-fcf46eaee7b5">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://10.19.95.220/evamdb</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.resource.type" value="Deployment" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="evamdb@172.17.38.37" uuid="0492d7ef-d67d-42db-8f55-14a22906ebb0">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://172.17.38.37:5432/evamdb</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="PMP_EVAM@172.16.15.21" uuid="a8761099-ccd7-4c00-ac3d-b7dffead56d6">
+      <driver-ref>teradata</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.teradata.jdbc.TeraDriver</jdbc-driver>
+      <jdbc-url>jdbc:teradata://172.16.15.21/DATABASE=PMP_EVAM,DBS_PORT=1025,STRICT_NAMES=OFF</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.resource.type" value="Deployment" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="evam82@localhost" uuid="ac398b14-4c4b-4011-be4c-19c130fa55df">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/evam82</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="MP_BVEW_CMT@172.16.24.2 [2]" uuid="9d24c0d9-2799-40dd-9e5e-adcf9c9c8db9">
+      <driver-ref>teradata</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.teradata.jdbc.TeraDriver</jdbc-driver>
+      <jdbc-url>jdbc:teradata://172.16.24.2/DATABASE=MP_BVEW_CMT,DBS_PORT=1025,STRICT_NAMES=OFF</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.resource.type" value="Deployment" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="hopiRedis" uuid="d45f26d8-0af8-413b-90d3-9e1a7fd4e23b">
+      <driver-ref>redis</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>jdbc.RedisDriver</jdbc-driver>
+      <jdbc-url>jdbc:redis://10.19.95.156:6379/0</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+      <driver-properties>
+        <property name="connectionTimeout" value="20000" />
+        <property name="socketTimeout" value="20000" />
+      </driver-properties>
+    </data-source>
+  </component>
+</project>

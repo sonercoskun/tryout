@@ -1,0 +1,1 @@
+insert into UMCSYSDEV.PTML_CHN_SMS_URDU(SMS_TEXT) values (N'"+درج کردی+"')

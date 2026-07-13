@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ElasticsearchConfiguration">
+    <option name="clusterConfigurations">
+      <map>
+        <entry key="b5a04643-fada-4d87-995c-14f1d9a9e939">
+          <value>
+            <ClusterConfigInternal>
+              <option name="id" value="b5a04643-fada-4d87-995c-14f1d9a9e939" />
+              <option name="label" value="hopi" />
+              <option name="readOnly" value="true" />
+              <option name="trustCertificate" value="true" />
+              <option name="url" value="http://10.19.95.193:9200" />
+              <option name="version" value="1" />
+            </ClusterConfigInternal>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="version" value="2" />
+  </component>
+</project>

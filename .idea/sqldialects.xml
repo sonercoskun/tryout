@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/d3d425ae-f49c-49a3-8998-cd8a07de905c/console_11.sql" dialect="Oracle" />
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/d3d425ae-f49c-49a3-8998-cd8a07de905c/console_14.sql" dialect="Oracle" />
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/d3d425ae-f49c-49a3-8998-cd8a07de905c/console_15.sql" dialect="Oracle" />
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/d3d425ae-f49c-49a3-8998-cd8a07de905c/console_16.sql" dialect="Oracle" />
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/d3d425ae-f49c-49a3-8998-cd8a07de905c/console_17.sql" dialect="Oracle" />
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/d3d425ae-f49c-49a3-8998-cd8a07de905c/console_20.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/.idea/queries/PGSQL_INT_LOG_PART.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/.idea/queries/Query_105.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/.idea/queries/VAKIF.sql" dialect="Oracle" />
+  </component>
+</project>

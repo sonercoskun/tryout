@@ -1,0 +1,1 @@
+select * from int_scen_cache_def;

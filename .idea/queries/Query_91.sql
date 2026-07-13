@@ -1,0 +1,2 @@
+SELECT *
+FROM hopi-big-data.b2b_bq.JUMBO_POPUP_20241122;

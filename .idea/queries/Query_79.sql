@@ -1,0 +1,36 @@
+truncate table OOREDOO_CUSTOM_CONTACT_POLICY;
+truncate table ACTOR_CONTACT_POLICY_SEGMENT_MAPPING;
+select count(*) from ACTOR_CONTACT_POLICY_SEGMENT_MAPPING;
+
+INSERT INTO OOREDOO_CUSTOM_INAPP_REPORTING (ID, MSISDN, CONTRACT_ID, LANGUAGEPREFERENCE, TESTMODEENABLED, CVM_TRIGGER, CVM_OFFER,
+                                            CVM_FLAG, CVM_MSG_AR_TITLE, CVM_MSG_EN_TITLE, CVM_MSG_AR_DESC, CVM_MSG_EN_DESC, CVM_IMAGE_URL_AR,
+                                            CVM_IMAGE_URL_EN, CVM_REDIRECTION_URL, CVM_CAMPAIGNNAME, CVM_CAMPAIGNDATE, CVM_MSG_EN_DESC1,
+                                            CVM_MSG_EN_DESC2, CVM_MSG_AR_DESC1, CVM_MSG_AR_DESC2, NO_CVM_OFFERS, TRANSACTION_ID,
+                                            MAIN_CAMPAIGN_NAME, SEGMENT_NAME, OFFER_ID, OFFER_START_DATE, OFFER_END_DATE,
+                                            REF_TRANSACTION_ID, STATUS, REASON, REASON_DETAIL, CAMPAIGN_NAME, TREATMENT_NAME,
+                                            OFFER_NAME, MESSAGE_TYPE,CAM_ID,TREATMENT_ID,USECASE_TREATMENT_CODE,TEMPLATE_NAME,
+                                            CUSTOMER_TYPE,EVENT_NAME,TG_CG_FLAG,DIRECTION,BUSINESS_GROUP,BUSINESS_SUBGROUP,
+                                            CAMPAIGN_OBJECTIVE,CAMPAIGN_TYPE,ALT_CONTACT_NUMBER) VALUES (INAPP_REPORTING_SEQ.NEXTVAL,
+?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+
+
+
+
+INSERT INTO OOREDOO_CUSTOM_SMS_REPORTING (ID, MSISDN, CONTRACT_ID, LANGUAGEPREFERENCE, MESSAGE_TEXT, SENDERID, TESTMODEENABLED,
+                                          FLASHSMSENABLED, CAM_ID, CAMPAIGN_NAME, SEGMENT_NAME, TRANSACTION_ID, TREATMENT_NAME,
+                                          TREATMENT_ID, OFFER_NAME, OFFER_ID, USECASE_TREATMENT_CODE, REF_TRANSACTION_ID, TREATMENT_CODE,
+                                          TEMPLATE_NAME, MESSAGE_TYPE, CUSTOMER_TYPE, MESSAGE_ID, EVENT_NAME, MAPPING_NAME, PRICE,
+                                          OFFER_CATEGORY, TG_CG_FLAG, DIRECTION, BUSINESS_GROUP, BUSINESS_SUBGROUP, CAMPAIGN_OBJECTIVE,
+                                          CAMPAIGN_TYPE, OFFER_TYPE, OFFER_START_DATE, OFFER_END_DATE, ALT_CONTACT_NUMBER,
+                                          MAIN_CAMPAIGN_NAME, DELIVERY_STATUS, STATUS, REASON, REASON_DETAIL) VALUES (OOREDOO_CUSTOM_SMS_SEQ.NEXTVAL,
+?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+
+
+INSERT INTO OOREDOO_CUSTOM_PUSH_REPORTING (ID, MSISDN, CONTRACT_ID, LANGUAGEPREFERENCE, DEEPLINK, TITLE, BODY, TAG_GROUP, TESTMODEENABLED,
+                                           CAM_ID, CAMPAIGN_NAME, SEGMENT_NAME, TRANSACTION_ID, TREATMENT_NAME, TREATMENT_ID, OFFER_NAME,
+                                           OFFER_ID, USECASE_TREATMENT_CODE, REF_TRANSACTION_ID, TREATMENT_CODE, TEMPLATE_NAME,
+                                           MESSAGE_TYPE, CUSTOMER_TYPE, STATUS, EVENT_NAME, MAPPING_NAME, PRICE, OFFER_CATEGORY,
+                                           TG_CG_FLAG, DIRECTION, BUSINESS_GROUP, BUSINESS_SUBGROUP, CAMPAIGN_OBJECTIVE, CAMPAIGN_TYPE,
+                                           OFFER_TYPE, OFFER_START_DATE, OFFER_END_DATE, ALT_CONTACT_NUMBER, MAIN_CAMPAIGN_NAME,
+                                           REASON, REASON_DETAIL) VALUES (OOREDOO_CUSTOM_PUSH_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?,
+?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  23 -39 -40

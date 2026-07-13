@@ -1,0 +1,1 @@
+select SMS_TEXT from PTML_CHN_SMS_URDU;

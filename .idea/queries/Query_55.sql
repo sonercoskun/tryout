@@ -1,0 +1,1 @@
+select * from UMCSYS.PTML_CHN_SMS_BC where MSISDN='923339800070';

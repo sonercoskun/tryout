@@ -1,0 +1,1 @@
+select * from (select actorid as actor_id, event_id, action_name, event, log_time from int_log_table) subquery_1 where 1=0

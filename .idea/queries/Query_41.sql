@@ -1,0 +1,1 @@
+select * from int_event_stat where day_of_date = '20241108';

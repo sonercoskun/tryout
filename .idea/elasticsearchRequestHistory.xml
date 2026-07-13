@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ElasticsearchRequestHistory">
+    <option name="requestHistory">
+      <map>
+        <entry key="b5a04643-fada-4d87-995c-14f1d9a9e939">
+          <value>
+            <list>
+              <HistoryRequest>
+                <option name="path" value="/_cluster/settings" />
+              </HistoryRequest>
+              <HistoryRequest>
+                <option name="path" value="/_cluster/health" />
+              </HistoryRequest>
+              <HistoryRequest>
+                <option name="path" value="/_cluster/stats" />
+              </HistoryRequest>
+              <HistoryRequest>
+                <option name="path" value="/_nodes/stats" />
+              </HistoryRequest>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,1 @@
+insert into PTML_CHN_SMS_URDU (SMS_TEXT) values ('ASD')

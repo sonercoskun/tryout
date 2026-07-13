@@ -1,0 +1,1 @@
+select * from anket_test_20240711_table;

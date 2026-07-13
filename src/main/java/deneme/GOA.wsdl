@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://is.mrtm.comviva.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://is.mrtm.comviva.com" xmlns:intf="http://is.mrtm.comviva.com" xmlns:tns1="http://getoffer.model.is.mrtm.comviva.com" xmlns:tns2="http://coins.getoffer.model.is.mrtm.comviva.com" xmlns:tns3="http://offers.getoffer.model.is.mrtm.comviva.com" xmlns:tns4="http://provision.model.is.mrtm.comviva.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://is.mrtm.comviva.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://getoffer.model.is.mrtm.comviva.com"/>
+   <import namespace="http://coins.getoffer.model.is.mrtm.comviva.com"/>
+   <import namespace="http://offers.getoffer.model.is.mrtm.comviva.com"/>
+   <import namespace="http://provision.model.is.mrtm.comviva.com"/>
+   <element name="getAvailableOffers">
+    <complexType>
+     <sequence>
+      <element name="request" type="tns1:GetOfferRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAvailableOffersResponse">
+    <complexType>
+     <sequence>
+      <element name="getAvailableOffersReturn" type="tns1:GetOfferResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_tns2_CoinDetails">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns2:CoinDetails"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_tns2_CoinGroup">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns2:CoinGroup"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_tns3_OfferDetail">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns3:OfferDetail"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_tns3_OfferGroup">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns3:OfferGroup"/>
+    </sequence>
+   </complexType>
+   <element name="provisionNow">
+    <complexType>
+     <sequence>
+      <element name="request" type="tns4:ProvisionRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="provisionNowResponse">
+    <complexType>
+     <sequence>
+      <element name="provisionNowReturn" type="tns4:ProvisionResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://getoffer.model.is.mrtm.comviva.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://coins.getoffer.model.is.mrtm.comviva.com"/>
+   <import namespace="http://offers.getoffer.model.is.mrtm.comviva.com"/>
+   <import namespace="http://is.mrtm.comviva.com"/>
+   <import namespace="http://provision.model.is.mrtm.comviva.com"/>
+   <complexType name="GetOfferRequest">
+    <sequence>
+     <element name="badgesCheck" nillable="true" type="xsd:string"/>
+     <element name="channelID" nillable="true" type="xsd:string"/>
+     <element name="civilID" nillable="true" type="xsd:string"/>
+     <element name="contractID" nillable="true" type="xsd:string"/>
+     <element name="msisdn" nillable="true" type="xsd:string"/>
+     <element name="offerSubType" nillable="true" type="xsd:string"/>
+     <element name="offerType" nillable="true" type="xsd:string"/>
+     <element name="promoid" nillable="true" type="xsd:string"/>
+     <element name="recommendationFlag" nillable="true" type="xsd:string"/>
+     <element name="serviceType" nillable="true" type="xsd:string"/>
+     <element name="tid" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="GetOfferResponse">
+    <sequence>
+     <element name="channelID" nillable="true" type="xsd:string"/>
+     <element name="civilID" nillable="true" type="xsd:string"/>
+     <element name="coinGroups" nillable="true" type="impl:ArrayOf_tns2_CoinGroup"/>
+     <element name="contractID" nillable="true" type="xsd:string"/>
+     <element name="offerCount" type="xsd:int"/>
+     <element name="offerGroups" nillable="true" type="impl:ArrayOf_tns3_OfferGroup"/>
+     <element name="responseCode" nillable="true" type="xsd:string"/>
+     <element name="responseDesc" nillable="true" type="xsd:string"/>
+     <element name="tid" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://coins.getoffer.model.is.mrtm.comviva.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://getoffer.model.is.mrtm.comviva.com"/>
+   <import namespace="http://offers.getoffer.model.is.mrtm.comviva.com"/>
+   <import namespace="http://is.mrtm.comviva.com"/>
+   <import namespace="http://provision.model.is.mrtm.comviva.com"/>
+   <complexType name="CoinDetails">
+    <sequence>
+     <element name="coinStatus" nillable="true" type="xsd:string"/>
+     <element name="expirydate" nillable="true" type="xsd:dateTime"/>
+     <element name="offerId" nillable="true" type="xsd:string"/>
+     <element name="offerName" nillable="true" type="xsd:string"/>
+     <element name="purchasedate" nillable="true" type="xsd:dateTime"/>
+    </sequence>
+   </complexType>
+   <complexType name="CoinGroup">
+    <sequence>
+     <element name="coinDetails" nillable="true" type="impl:ArrayOf_tns2_CoinDetails"/>
+     <element name="msisdn" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://offers.getoffer.model.is.mrtm.comviva.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://getoffer.model.is.mrtm.comviva.com"/>
+   <import namespace="http://coins.getoffer.model.is.mrtm.comviva.com"/>
+   <import namespace="http://is.mrtm.comviva.com"/>
+   <import namespace="http://provision.model.is.mrtm.comviva.com"/>
+   <complexType name="OfferDetail">
+    <sequence>
+     <element name="accumualtionCoins" type="xsd:int"/>
+     <element name="dataQuota" type="xsd:double"/>
+     <element name="deviceModelName" nillable="true" type="xsd:string"/>
+     <element name="deviceSpecifications" nillable="true" type="xsd:string"/>
+     <element name="deviceprice" type="xsd:double"/>
+     <element name="endDate" nillable="true" type="xsd:dateTime"/>
+     <element name="imageURL" nillable="true" type="xsd:string"/>
+     <element name="internationalVoiceQuota" type="xsd:double"/>
+     <element name="localVoiceQuota" type="xsd:double"/>
+     <element name="longDescriptionARA" nillable="true" type="xsd:string"/>
+     <element name="longDescriptionEN" nillable="true" type="xsd:string"/>
+     <element name="nojoomPoints" type="xsd:long"/>
+     <element name="oFutureParam1" nillable="true" type="xsd:string"/>
+     <element name="oFutureParam2" nillable="true" type="xsd:string"/>
+     <element name="oFutureParam3" nillable="true" type="xsd:string"/>
+     <element name="oFutureParam4" nillable="true" type="xsd:string"/>
+     <element name="offerCategory" nillable="true" type="xsd:string"/>
+     <element name="offerCode" nillable="true" type="xsd:string"/>
+     <element name="offerName" nillable="true" type="xsd:string"/>
+     <element name="offerSubType" nillable="true" type="xsd:string"/>
+     <element name="offerType" nillable="true" type="xsd:string"/>
+     <element name="packValidity" type="xsd:int"/>
+     <element name="priceOfProduct" type="xsd:double"/>
+     <element name="promoDescription" nillable="true" type="xsd:string"/>
+     <element name="promoid" nillable="true" type="xsd:string"/>
+     <element name="ratePlanDiscount" type="xsd:double"/>
+     <element name="ratePlanName" nillable="true" type="xsd:string"/>
+     <element name="recommendationFlag" nillable="true" type="xsd:string"/>
+     <element name="redemptionCoins" type="xsd:int"/>
+     <element name="redirectionURL" nillable="true" type="xsd:string"/>
+     <element name="shortDescriptionARA" nillable="true" type="xsd:string"/>
+     <element name="shortDescriptionEN" nillable="true" type="xsd:string"/>
+     <element name="startDate" nillable="true" type="xsd:dateTime"/>
+     <element name="subCategory" nillable="true" type="xsd:string"/>
+     <element name="treatmentCode" nillable="true" type="xsd:string"/>
+     <element name="validityQuota" type="xsd:double"/>
+    </sequence>
+   </complexType>
+   <complexType name="OfferGroup">
+    <sequence>
+     <element name="futureParam1" nillable="true" type="xsd:string"/>
+     <element name="futureParam10" nillable="true" type="xsd:string"/>
+     <element name="futureParam2" nillable="true" type="xsd:string"/>
+     <element name="futureParam3" nillable="true" type="xsd:string"/>
+     <element name="futureParam4" nillable="true" type="xsd:string"/>
+     <element name="futureParam5" nillable="true" type="xsd:string"/>
+     <element name="futureParam6" nillable="true" type="xsd:string"/>
+     <element name="futureParam7" nillable="true" type="xsd:string"/>
+     <element name="futureParam8" nillable="true" type="xsd:string"/>
+     <element name="futureParam9" nillable="true" type="xsd:string"/>
+     <element name="maxGB" type="xsd:double"/>
+     <element name="maxMins" type="xsd:double"/>
+     <element name="maxValidity" type="xsd:double"/>
+     <element name="msisdn" nillable="true" type="xsd:string"/>
+     <element name="offerCount" type="xsd:int"/>
+     <element name="offerDetails" nillable="true" type="impl:ArrayOf_tns3_OfferDetail"/>
+     <element name="priceCalculation" nillable="true" type="xsd:string"/>
+     <element name="pricePerGB" type="xsd:double"/>
+     <element name="pricePerMinute" type="xsd:double"/>
+     <element name="redeemFlag" nillable="true" type="xsd:string"/>
+     <element name="totalavailableCoins" type="xsd:int"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://provision.model.is.mrtm.comviva.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://getoffer.model.is.mrtm.comviva.com"/>
+   <import namespace="http://coins.getoffer.model.is.mrtm.comviva.com"/>
+   <import namespace="http://offers.getoffer.model.is.mrtm.comviva.com"/>
+   <import namespace="http://is.mrtm.comviva.com"/>
+   <complexType name="ProvisionRequest">
+    <sequence>
+     <element name="authorizationCode" nillable="true" type="xsd:string"/>
+     <element name="channelID" nillable="false" type="xsd:string"/>
+     <element name="channelInfo1" nillable="true" type="xsd:string"/>
+     <element name="channelInfo2" nillable="true" type="xsd:string"/>
+     <element name="channelInfo3" nillable="true" type="xsd:string"/>
+     <element name="channelInfo4" nillable="true" type="xsd:string"/>
+     <element name="channelInfo5" nillable="true" type="xsd:string"/>
+     <element name="channelTrackID" nillable="true" type="xsd:string"/>
+     <element name="contractID" nillable="true" type="xsd:string"/>
+     <element name="dataQuota" type="xsd:double"/>
+     <element name="gatewayReferenceID" nillable="true" type="xsd:string"/>
+     <element name="msisdn" nillable="false" type="xsd:string"/>
+     <element name="offerCode" nillable="true" type="xsd:string"/>
+     <element name="packPrice" type="xsd:double"/>
+     <element name="paymentAmount" type="xsd:double"/>
+     <element name="paymentMethod" nillable="true" type="xsd:string"/>
+     <element name="paymentType" nillable="true" type="xsd:string"/>
+     <element name="redeemFlag" nillable="false" type="xsd:string"/>
+     <element name="tid" nillable="false" type="xsd:string"/>
+     <element name="treatmentCode" nillable="false" type="xsd:string"/>
+     <element name="validity" type="xsd:int"/>
+     <element name="voiceQuota" type="xsd:double"/>
+    </sequence>
+   </complexType>
+   <complexType name="ProvisionResponse">
+    <sequence>
+     <element name="contractID" nillable="true" type="xsd:string"/>
+     <element name="msisdn" nillable="false" type="xsd:string"/>
+     <element name="responseCode" nillable="false" type="xsd:string"/>
+     <element name="responseDesc" nillable="true" type="xsd:string"/>
+     <element name="tid" nillable="false" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="provisionNowRequest">
+
+      <wsdl:part element="impl:provisionNow" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAvailableOffersResponse">
+
+      <wsdl:part element="impl:getAvailableOffersResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="provisionNowResponse">
+
+      <wsdl:part element="impl:provisionNowResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAvailableOffersRequest">
+
+      <wsdl:part element="impl:getAvailableOffers" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="InboundService">
+
+      <wsdl:operation name="getAvailableOffers">
+
+         <wsdl:input message="impl:getAvailableOffersRequest" name="getAvailableOffersRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAvailableOffersResponse" name="getAvailableOffersResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="provisionNow">
+
+         <wsdl:input message="impl:provisionNowRequest" name="provisionNowRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:provisionNowResponse" name="provisionNowResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="InboundServiceSoapBinding" type="impl:InboundService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getAvailableOffers">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAvailableOffersRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAvailableOffersResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="provisionNow">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="provisionNowRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="provisionNowResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="InboundServiceService">
+
+      <wsdl:port binding="impl:InboundServiceSoapBinding" name="InboundService">
+
+         <wsdlsoap:address location="http://tempuri.org/InboundServiceClient/services/InboundService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,3 @@
+SHOW idle_in_transaction_session_timeout;
+SHOW statement_timeout;
+SHOW tcp_keepalives_idle;
